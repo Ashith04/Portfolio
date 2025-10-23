@@ -1,0 +1,177 @@
+/* --- Global Styles & Resets --- */
+* {
+    /* This makes sizing boxes (width/height) more intuitive */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Corrected spelling from "Ariel" to "Arial" and added a fallback */
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Added a light background for contrast */
+}
+
+/* --- Header & Navigation --- */
+header {
+    display: flex;
+    align-items: center; /* Corrected typo 'centre' */
+    justify-content: space-between; /* This spaces children evenly */
+    padding: 20px;
+    background-color: rgba(224, 231, 134, 0.908);
+    /* Removed the border from the container and applied a shadow to the header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* This container holds the title and nav links */
+.container {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Adds space between title and nav */
+    /* Removed fixed margins */
+}
+
+.title {
+    font-size: 30px;
+    /* Removed fixed margins; flexbox now handles alignment */
+}
+
+#nav {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    /* Removed fixed margin-left; 'gap' on .container handles spacing */
+}
+
+/* Styling the links inside the nav for better appearance */
+#nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#nav a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* --- Cart Icon --- */
+.cart-icon {
+    position: relative; /* Correct: for positioning the span */
+    display: flex; /* Helps align the icon and (future) text */
+    align-items: center;
+    cursor: pointer;
+}
+
+#photo {
+    width: 50px;
+    height: 50px;
+    /* Removed fixed padding-left; header's justify-content handles positioning */
+}
+
+.cart-icon span {
+    display: flex; /* Use flex to center the number */
+    align-items: center;
+    justify-content: center;
+
+    width: 20px; /* Made it a 20x20 circle */
+    height: 20px;
+    border-radius: 50%; /* This makes it a circle */
+
+    background-color: red;
+    color: white; /* Changed from 'aliceblue' for better readability */
+    font-size: 12px;
+    font-weight: bold;
+
+    position: absolute;
+    top: -8px;   /* Position the badge relative to the icon */
+    right: -8px; /* Position the badge relative to the icon */
+
+    /* Removed invalid CSS: 'border: flex' and 'align-items:"center"' */
+}
+
+/* --- Product List ---*/
+main {
+    padding: 40px 20px; /* Add space around the main content */
+}    
+
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    gap: 30px;       /* This is the space BETWEEN items */
+    /* REMOVED: justify-content: center; */
+    max-width: 1200px; /* Keeps your content from stretching too wide */
+    margin: 0 auto;  /* Centers the .product-list itself */
+}
+
+.item {
+    background-color: rgb(255, 165, 165);
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 20px;
+    
+    /* --- THESE ARE THE KEY CHANGES --- */
+    flex-basis: 250px; /* Set the 'ideal' starting width */
+    flex-grow: 1;      /* Allow the item to grow to fill empty space */
+    /* --- END OF CHANGES --- */
+    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item:hover {
+    transform: translateY(-5px); /* Adds a nice hover effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Style for the images inside the item cards */
+.item img {
+    width: 100%; /* Make image fill the card width */
+    height: 100%; /* Give a consistent image height */
+    object-fit: cover; /* Ensures image covers the area, maintains aspect ratio */
+    border-radius: 10px; /* Slightly rounded corners for the image */
+    margin-bottom: 15px;
+    gap: 30px;
+}
+
+
+.name {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    font-size: 1.2rem;
+    margin-left: 10px 0; /* Replaced margin-left with vertical margin */
+    text-align: center;
+}
+
+.price {
+    color: black;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 20px; /* Replaced margin-left with vertical margin */
+}
+
+.animation {
+    color: black;
+    background-color: #e9cb6e;
+    font-family: 'Poppins', sans-serif; /* Added sans-serif fallback */
+    text-align: center;
+    border: 2px solid black; /* Corrected syntax */
+    border-radius: 4px;
+    padding: 10px 20px; /* Added padding to make it look like a button */
+    cursor: pointer; /* Shows a hand cursor on hover */
+    
+    /* Removed fixed margin-left; centering is handled by .item's flex properties */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.animation:hover {
+    background-color: #8fc1f7;
+    transform: scale(1.05);
+}
