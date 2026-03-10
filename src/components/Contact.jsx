@@ -32,25 +32,25 @@ const Contact = () => {
                             </p>
                         </div>
                         <div className="contact-cards">
-                            <a href="mailto:example@email.com" className="contact-card">
+                            <a href="https://mail.google.com/mail/?view=cm&to=ashith04.eagle@gmail.com" target="_blank" rel="noopener noreferrer" className="contact-card">
                                 <div className="contact-card-icon">✉️</div>
                                 <div className="contact-card-text">
                                     <span>Email</span>
-                                    <span>example@email.com</span>
+                                    <span>ashith04.eagle@gmail.com</span>
                                 </div>
                             </a>
-                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="contact-card">
+                            <a href="https://github.com/Ashith04" target="_blank" rel="noopener noreferrer" className="contact-card">
                                 <div className="contact-card-icon">💻</div>
                                 <div className="contact-card-text">
                                     <span>GitHub</span>
-                                    <span>github.com/username</span>
+                                    <span>github.com/Ashith04</span>
                                 </div>
                             </a>
-                            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="contact-card">
+                            <a href="https://www.linkedin.com/in/ashith-cherian-618620365" target="_blank" rel="noopener noreferrer" className="contact-card">
                                 <div className="contact-card-icon">🔗</div>
                                 <div className="contact-card-text">
                                     <span>LinkedIn</span>
-                                    <span>linkedin.com/in/username</span>
+                                    <span>Ashith Cherian</span>
                                 </div>
                             </a>
                         </div>

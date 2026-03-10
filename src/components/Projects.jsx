@@ -1,33 +1,84 @@
-const projects = [
+const currentlyBuilding = [
     {
-        title: 'Smart Budget Tracker',
+        title: 'Vora',
         description:
-            'A comprehensive budget tracking application with real-time analytics, category-based expense management, and interactive charts for financial insights.',
-        tags: ['React', 'Firebase', 'Chart.js', 'CSS'],
-        link: 'https://github.com/',
+            'An AI-powered voice-to-game engine that translates natural speech into real-time game logic. Built with the Gemini Multimodal Live API for low-latency voice interaction and WebSocket-based audio processing.',
+        tags: ['TypeScript', 'Gemini AI', 'WebSocket', 'AudioWorklet'],
+        link: '#',
+        status: 'beta',
     },
     {
-        title: 'AI Chat Application',
+        title: 'Galactic Archives',
         description:
-            'An AI-powered chat application with real-time voice and text support, multilingual capabilities, and a modern responsive interface.',
-        tags: ['React', 'Node.js', 'WebSocket', 'AI API'],
-        link: 'https://github.com/',
+            'An immersive space exploration data platform. Designed to render vast astronomical datasets with optimized memory management and performant C++ rendering pipelines.',
+        tags: ['C++', 'Data Structures', 'Memory Optimization'],
+        link: '#',
+        status: 'dev',
+    },
+];
+
+const featuredProjects = [
+    {
+        title: 'EcoCharge MS',
+        description:
+            'A full-stack EV charging management system built with a high-performance C++ backend. Features optimized data structures for station routing, real-time availability tracking, and memory-efficient session management.',
+        tags: ['C++', 'JavaScript', 'HTML/CSS', 'Systems Design'],
+        link: 'https://github.com/Ashith04/EcoChargeMS-system',
+        status: 'live',
     },
     {
-        title: 'Civic Issue Reporter',
+        title: 'Smart Task Manager',
         description:
-            'A civic issue reporting platform with image analysis, geolocation, admin dashboard, and community validation features.',
-        tags: ['Next.js', 'MongoDB', 'Gemini AI', 'Tailwind'],
-        link: 'https://github.com/',
+            'An AI-powered task management platform with intelligent productivity insights, pattern recognition, and smart prioritization. Features analytics dashboards and completion tracking.',
+        tags: ['Python', 'Flask', 'SQLite', 'AI/ML'],
+        link: 'https://github.com/Ashith04/Ai-financial-Assistance',
+        status: 'live',
     },
     {
         title: 'Movie Discovery Platform',
         description:
-            'A feature-rich movie discovery app with search, filtering, favorites, and detailed movie information powered by external APIs.',
-        tags: ['React', 'REST API', 'CSS', 'JavaScript'],
-        link: 'https://github.com/',
+            'A feature-rich movie search and discovery app with real-time OMDB API integration, favorites, dark mode, and language filtering. Deployed live on Vercel.',
+        tags: ['React', 'OMDB API', 'CSS', 'Vercel'],
+        link: 'https://github.com/Ashith04/Movie_Website',
+        status: 'live',
     },
 ];
+
+const StatusBadge = ({ status }) => {
+    const labels = { live: '● Live', beta: '◉ Beta', dev: '◌ In Development' };
+    return (
+        <span className={`project-status ${status}`}>
+            <span className="pulse-dot"></span>
+            {labels[status]}
+        </span>
+    );
+};
+
+const ProjectCard = ({ project, index, showNumber }) => (
+    <div
+        className="project-card reveal-scale"
+        style={{ transitionDelay: `${index * 0.12}s` }}
+    >
+        {showNumber && <span className="project-number">0{index + 1}</span>}
+        <StatusBadge status={project.status} />
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+        <div className="project-tags">
+            {project.tags.map((tag, i) => (
+                <span className="project-tag" key={i}>{tag}</span>
+            ))}
+        </div>
+        {project.link !== '#' ? (
+            <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link">
+                View on GitHub →
+            </a>
+        ) : (
+            <span className="project-link" style={{ opacity: 0.5, cursor: 'default' }}>
+                Coming Soon →
+            </span>
+        )}
+    </div>
+);
 
 const Projects = () => {
     return (
@@ -35,27 +86,20 @@ const Projects = () => {
             <div className="container">
                 <div className="section-header reveal">
                     <h2>Selected Works<span className="accent-dot">.</span></h2>
-                    <p>A collection of projects built with passion and precision.</p>
+                    <p>Projects built with passion, precision, and a focus on performance.</p>
                 </div>
+
+                <div className="projects-section-label">🚀 Currently Building</div>
+                <div className="projects-grid" style={{ marginBottom: '48px' }}>
+                    {currentlyBuilding.map((project, index) => (
+                        <ProjectCard project={project} index={index} key={index} />
+                    ))}
+                </div>
+
+                <div className="projects-section-label">⚡ Featured Projects</div>
                 <div className="projects-grid">
-                    {projects.map((project, index) => (
-                        <div
-                            className="project-card reveal-scale"
-                            key={index}
-                            style={{ transitionDelay: `${index * 0.12}s` }}
-                        >
-                            <span className="project-number">0{index + 1}</span>
-                            <h3>{project.title}</h3>
-                            <p>{project.description}</p>
-                            <div className="project-tags">
-                                {project.tags.map((tag, i) => (
-                                    <span className="project-tag" key={i}>{tag}</span>
-                                ))}
-                            </div>
-                            <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link">
-                                View Project →
-                            </a>
-                        </div>
+                    {featuredProjects.map((project, index) => (
+                        <ProjectCard project={project} index={index} showNumber key={index} />
                     ))}
                 </div>
             </div>

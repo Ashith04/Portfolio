@@ -40,7 +40,7 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <a href="#home" className="nav-logo" onClick={(e) => handleNavClick(e, 'home')}>
-          Ashit<span>.</span>dev
+          Ashith<span>.</span>dev
         </a>
         <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
           {links.map(({ id, label }) => (
